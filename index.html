@@ -1,416 +1,723 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>5 Shopify Ad Pages · Waheed Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0;}
+  :root {
+    --green: #96bf48;
+    --green-dark: #7aaa2e;
+    --green-light: #eaf5d0;
+    --green-border: #c5df8a;
+    --black: #0d0d0d;
+    --gray-bg: #f3f4f6;
+    --gray-border: #e5e7eb;
+    --gray-text: #6b7280;
+    --gray-soft: #f9fafb;
+    --white: #ffffff;
+  }
 
-.sp{font-family:'Inter',sans-serif;background:#f3f4f6;color:#111;width:100%;}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.sp-bg{
-  background-color:#f3f4f6;
-  background-image:
-    linear-gradient(rgba(150,191,72,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(150,191,72,0.06) 1px, transparent 1px);
-  background-size:32px 32px;
-}
+  html { scroll-behavior: smooth; }
 
-.sp-topbar{
-  background:#0d0d0d;
-  color:#f0f0f0;
-  font-size:12px;
-  font-weight:500;
-  text-align:center;
-  padding:9px 16px;
-  letter-spacing:0.4px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-.sp-topbar-dot{width:7px;height:7px;border-radius:50%;background:#96bf48;display:inline-block;}
-.sp-topbar span{color:#96bf48;font-weight:600;}
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--gray-bg);
+    color: var(--black);
+    min-height: 100vh;
+  }
 
-.sp-nav{
-  background:#fff;
-  border-bottom:2px solid #e5e7eb;
-  padding:0 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:60px;
-}
-.sp-logo{font-size:16px;font-weight:700;color:#111;display:flex;align-items:center;gap:10px;letter-spacing:-0.3px;}
-.sp-logo-mark{
-  width:34px;height:34px;border-radius:8px;
-  background:#0d0d0d;
-  display:flex;align-items:center;justify-content:center;
-}
-.sp-logo-mark svg{width:18px;height:18px;}
-.sp-nav-right{display:flex;align-items:center;gap:16px;}
-.sp-nav-link{font-size:13px;color:#555;font-weight:500;text-decoration:none;}
-.sp-live-badge{
-  display:flex;align-items:center;gap:6px;
-  background:#f0fce8;border:1px solid #b5dd79;
-  color:#2d6a00;font-size:11px;font-weight:700;
-  padding:5px 12px;border-radius:20px;letter-spacing:0.3px;
-}
-.sp-live-dot{width:6px;height:6px;border-radius:50%;background:#5aaa0a;}
+  /* ── PAGE BG GRID ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(150,191,72,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(150,191,72,0.07) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-.sp-hero-wrap{
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
-  position:relative;
-  overflow:hidden;
-}
-.sp-hero-pattern{
-  position:absolute;inset:0;
-  background-image:radial-gradient(circle,#96bf48 1px,transparent 1px);
-  background-size:24px 24px;
-  opacity:0.07;
-}
-.sp-hero-right-block{
-  position:absolute;top:0;right:0;bottom:0;width:220px;
-  background:#f9fafb;
-  border-left:1px solid #e5e7eb;
-}
-.sp-hero-right-inner{
-  padding:32px 20px;
-  display:flex;flex-direction:column;gap:14px;
-}
-.sp-mini-card{
-  background:#fff;border:1px solid #e5e7eb;border-radius:8px;
-  padding:10px 12px;
-}
-.sp-mini-label{font-size:10px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
-.sp-mini-val{font-size:18px;font-weight:700;color:#111;}
-.sp-mini-sub{font-size:11px;color:#96bf48;font-weight:600;margin-top:1px;}
+  .page-wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
 
-.sp-hero-content{padding:40px 32px 40px 32px;margin-right:220px;position:relative;z-index:1;}
-.sp-hero-tag{
-  display:inline-flex;align-items:center;gap:7px;
-  background:#f0fce8;border:1px solid #b5dd79;
-  color:#2d6a00;font-size:11px;font-weight:700;
-  padding:5px 14px;border-radius:20px;margin-bottom:18px;letter-spacing:0.3px;
-}
-.sp-to-label{font-size:12px;color:#aaa;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
-.sp-h1{font-size:28px;font-weight:800;color:#0d0d0d;line-height:1.2;margin-bottom:10px;letter-spacing:-0.6px;}
-.sp-h1 .g{color:#96bf48;}
-.sp-hero-sub{font-size:13.5px;color:#6b7280;line-height:1.7;margin-bottom:24px;max-width:400px;}
-.sp-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-.sp-btn-g{
-  background:#96bf48;color:#fff;border:none;
-  border-radius:6px;padding:12px 22px;
-  font-size:13px;font-weight:700;cursor:pointer;
-  font-family:'Inter',sans-serif;
-  display:flex;align-items:center;gap:7px;
-  text-decoration:none;
-}
-.sp-btn-o{
-  background:#fff;color:#0d0d0d;
-  border:2px solid #0d0d0d;
-  border-radius:6px;padding:10px 18px;
-  font-size:13px;font-weight:700;cursor:pointer;
-  font-family:'Inter',sans-serif;
-  display:flex;align-items:center;gap:7px;
-  text-decoration:none;
-}
-.sp-stats-row{display:flex;gap:0;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;max-width:380px;background:#fff;}
-.sp-stat{flex:1;text-align:center;padding:12px 6px;border-right:1px solid #e5e7eb;}
-.sp-stat:last-child{border-right:none;}
-.sp-stat-n{font-size:18px;font-weight:800;color:#0d0d0d;}
-.sp-stat-l{font-size:10px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;margin-top:2px;}
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--black);
+    color: #e5e7eb;
+    font-size: 12.5px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 20px;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .topbar .pulse {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green);
+    animation: blink 2s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .topbar strong { color: var(--green); }
 
-.sp-gift-bar{
-  background:#0d0d0d;
-  display:flex;align-items:center;gap:16px;
-  padding:14px 28px;
-}
-.sp-gift-icon-wrap{
-  width:40px;height:40px;border-radius:8px;
-  background:#96bf48;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-}
-.sp-gift-title{font-size:11px;font-weight:800;color:#96bf48;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:2px;}
-.sp-gift-txt{font-size:13px;color:#d1d5db;line-height:1.45;}
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--gray-border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 11px;
+    font-size: 17px; font-weight: 800; color: var(--black);
+    text-decoration: none; letter-spacing: -0.4px;
+  }
+  .nav-logo-mark {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    font-size: 13.5px; color: #555; font-weight: 500;
+    text-decoration: none; transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--green-light); border: 1.5px solid var(--green-border);
+    color: #2a5e00; font-size: 12px; font-weight: 700;
+    padding: 7px 14px; border-radius: 20px;
+    text-decoration: none; letter-spacing: 0.2px;
+  }
 
-.sp-gap{height:8px;}
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    border-bottom: 2px solid var(--gray-border);
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-dot-bg {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(150,191,72,0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events: none;
+  }
+  .hero-content {
+    padding: 52px 44px 44px;
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--green-light); border: 1.5px solid var(--green-border);
+    color: #2a5e00; font-size: 11px; font-weight: 700;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px; letter-spacing: 0.4px;
+    width: fit-content;
+  }
+  .hero-for { font-size: 12px; color: #aaa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+  .hero-h1 {
+    font-size: 38px; font-weight: 900; color: var(--black);
+    line-height: 1.12; margin-bottom: 14px; letter-spacing: -1px;
+  }
+  .hero-h1 .accent { color: var(--green); }
+  .hero-sub {
+    font-size: 15px; color: var(--gray-text); line-height: 1.7;
+    margin-bottom: 30px; max-width: 460px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green); color: var(--white);
+    border: none; border-radius: 8px;
+    padding: 13px 26px; font-size: 14px; font-weight: 700;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    text-decoration: none; transition: background 0.15s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); color: var(--black);
+    border: 2px solid var(--black); border-radius: 8px;
+    padding: 11px 22px; font-size: 14px; font-weight: 700;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    text-decoration: none; transition: background 0.15s;
+  }
+  .btn-secondary:hover { background: var(--gray-bg); }
 
-.sp-card{background:#fff;border:1px solid #e5e7eb;border-radius:0;padding:24px 28px;border-bottom:none;}
-.sp-card:last-of-type{border-bottom:1px solid #e5e7eb;}
-.sp-section-pill{display:inline-flex;align-items:center;gap:6px;background:#f0fce8;color:#3b6d11;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;padding:3px 10px;border-radius:20px;margin-bottom:6px;}
-.sp-section-h{font-size:17px;font-weight:800;color:#0d0d0d;margin-bottom:14px;letter-spacing:-0.2px;}
-.sp-body-txt{font-size:13.5px;color:#4b5563;line-height:1.75;}
-.sp-body-txt a{color:#96bf48;font-weight:700;text-decoration:none;border-bottom:1.5px solid rgba(150,191,72,0.35);}
+  .hero-meta {
+    display: flex; gap: 0;
+    border: 1.5px solid var(--gray-border); border-radius: 10px;
+    overflow: hidden; max-width: 400px; background: var(--white);
+  }
+  .meta-item {
+    flex: 1; text-align: center; padding: 13px 8px;
+    border-right: 1px solid var(--gray-border);
+  }
+  .meta-item:last-child { border-right: none; }
+  .meta-num { font-size: 17px; font-weight: 800; color: var(--black); }
+  .meta-label { font-size: 10px; color: #aaa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
 
-.sp-tl{display:flex;flex-direction:column;}
-.sp-tl-row{display:flex;gap:14px;padding-bottom:20px;}
-.sp-tl-row:last-child{padding-bottom:0;}
-.sp-tl-left{display:flex;flex-direction:column;align-items:center;width:34px;flex-shrink:0;}
-.sp-tl-num{width:34px;height:34px;border-radius:50%;background:#96bf48;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-.sp-tl-line{width:2px;background:#e5e7eb;flex:1;min-height:16px;margin-top:3px;}
-.sp-tl-body{padding-top:6px;flex:1;}
-.sp-tl-day{font-size:10px;font-weight:800;color:#96bf48;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:3px;}
-.sp-tl-title{font-size:14px;font-weight:700;color:#0d0d0d;margin-bottom:3px;}
-.sp-tl-desc{font-size:12.5px;color:#6b7280;line-height:1.55;}
+  /* ── HERO SIDEBAR ── */
+  .hero-sidebar {
+    background: #f9fafb;
+    border-left: 1.5px solid var(--gray-border);
+    padding: 32px 22px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .sidebar-label { font-size: 10px; color: #aaa; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px; }
+  .sidebar-val { font-size: 22px; font-weight: 800; color: var(--black); }
+  .sidebar-sub { font-size: 11.5px; color: var(--green); font-weight: 600; margin-top: 2px; }
 
-.sp-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.sp-proof{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;}
-.sp-proof-ico{width:34px;height:34px;border-radius:7px;background:#f0fce8;border:1px solid #b5dd79;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.sp-proof-name{font-size:13px;font-weight:700;color:#0d0d0d;margin-bottom:2px;}
-.sp-proof-res{font-size:11.5px;color:#6b7280;line-height:1.4;}
+  /* ── FREE BAR ── */
+  .free-bar {
+    background: var(--black);
+    display: flex; align-items: center; gap: 18px;
+    padding: 16px 40px;
+  }
+  .free-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--green); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: var(--white);
+  }
+  .free-label { font-size: 11px; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 0.9px; margin-bottom: 3px; }
+  .free-txt { font-size: 13.5px; color: #c9d5e0; line-height: 1.5; }
 
-.sp-skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-.sp-skill{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 10px;text-align:center;}
-.sp-skill-ico{font-size:22px;color:#96bf48;margin-bottom:6px;display:block;}
-.sp-skill-name{font-size:12px;font-weight:700;color:#0d0d0d;margin-bottom:2px;}
-.sp-skill-sub{font-size:11px;color:#9ca3af;}
+  /* ── MAIN LAYOUT ── */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 0;
+    align-items: start;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+  }
+  .main-left { display: flex; flex-direction: column; gap: 16px; }
+  .main-right { position: sticky; top: 84px; padding-left: 16px; display: flex; flex-direction: column; gap: 14px; }
 
-.sp-q-box{background:#f0fce8;border:1.5px solid #b5dd79;border-radius:8px;padding:18px 20px;}
-.sp-q-label{font-size:10px;font-weight:800;color:#2d6a00;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
-.sp-q-txt{font-size:13.5px;color:#1a3d00;line-height:1.65;}
+  /* ── SECTION CARD ── */
+  .s-card {
+    background: var(--white);
+    border: 1.5px solid var(--gray-border);
+    border-radius: 14px;
+    padding: 28px 30px;
+  }
+  .s-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green-light); color: #2a5e00;
+    font-size: 10.5px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.7px; padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .s-title { font-size: 20px; font-weight: 800; color: var(--black); margin-bottom: 16px; letter-spacing: -0.3px; }
+  .s-body { font-size: 14px; color: #4b5563; line-height: 1.8; }
+  .s-body a { color: var(--green); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid rgba(150,191,72,0.4); }
+  .s-body a:hover { border-color: var(--green); }
 
-.sp-cta-block{background:#0d0d0d;padding:36px 28px;text-align:center;}
-.sp-cta-h{font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-0.3px;}
-.sp-cta-sub{font-size:13px;color:#9ca3af;margin-bottom:22px;line-height:1.6;max-width:420px;margin-left:auto;margin-right:auto;}
-.sp-cta-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#96bf48;color:#fff;border:none;
-  border-radius:7px;padding:14px 30px;
-  font-size:14px;font-weight:800;cursor:pointer;
-  font-family:'Inter',sans-serif;
-  letter-spacing:0.1px;text-decoration:none;
-}
-.sp-cta-note{font-size:11px;color:#555;margin-top:12px;}
+  /* ── TIMELINE ── */
+  .tl { display: flex; flex-direction: column; }
+  .tl-row { display: flex; gap: 16px; padding-bottom: 24px; }
+  .tl-row:last-child { padding-bottom: 0; }
+  .tl-left { display: flex; flex-direction: column; align-items: center; width: 36px; flex-shrink: 0; }
+  .tl-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .tl-line { width: 2px; background: #e5e7eb; flex: 1; min-height: 18px; margin-top: 4px; }
+  .tl-body { padding-top: 6px; flex: 1; }
+  .tl-day { font-size: 10.5px; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+  .tl-t { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+  .tl-d { font-size: 13px; color: var(--gray-text); line-height: 1.6; }
 
-.sp-footer{
-  background:#fff;
-  border-top:2px solid #e5e7eb;
-  padding:16px 28px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.sp-footer-left{display:flex;align-items:center;gap:12px;}
-.sp-avatar{
-  width:42px;height:42px;border-radius:50%;
-  background:#0d0d0d;color:#96bf48;
-  font-size:14px;font-weight:800;
-  display:flex;align-items:center;justify-content:center;
-}
-.sp-fname{font-size:13px;font-weight:700;color:#0d0d0d;}
-.sp-fsub{font-size:11px;color:#9ca3af;margin-top:1px;}
-.sp-fbadge{background:#f0fce8;border:1px solid #b5dd79;color:#2d6a00;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;display:flex;align-items:center;gap:5px;}
+  /* ── PROOF GRID ── */
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .proof-card {
+    background: var(--gray-soft); border: 1.5px solid var(--gray-border);
+    border-radius: 10px; padding: 14px 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+    transition: border-color 0.15s;
+  }
+  .proof-card:hover { border-color: var(--green-border); }
+  .proof-ico {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--green-light); border: 1.5px solid var(--green-border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: #3b6d11; font-size: 17px;
+  }
+  .proof-name { font-size: 13.5px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+  .proof-res { font-size: 12px; color: var(--gray-text); line-height: 1.4; }
+
+  /* ── SKILLS GRID ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .skill-card {
+    background: var(--gray-soft); border: 1.5px solid var(--gray-border);
+    border-radius: 10px; padding: 16px 12px; text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .skill-card:hover { border-color: var(--green-border); background: var(--green-light); }
+  .skill-ico { font-size: 24px; color: var(--green); margin-bottom: 8px; display: block; }
+  .skill-name { font-size: 12.5px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+  .skill-sub { font-size: 11px; color: #9ca3af; }
+
+  /* ── QUESTION BOX ── */
+  .q-box {
+    background: var(--green-light);
+    border: 2px solid var(--green-border);
+    border-radius: 12px; padding: 20px 22px;
+  }
+  .q-label {
+    font-size: 10.5px; font-weight: 800; color: #2a5e00;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+  }
+  .q-txt { font-size: 14px; color: #1c3c00; line-height: 1.7; }
+
+  /* ── SIDEBAR WIDGETS ── */
+  .sw-card {
+    background: var(--white);
+    border: 1.5px solid var(--gray-border);
+    border-radius: 14px; padding: 20px 22px;
+  }
+  .sw-title { font-size: 13px; font-weight: 800; color: var(--black); margin-bottom: 14px; letter-spacing: -0.1px; }
+  .sw-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--gray-border); }
+  .sw-row:last-child { border-bottom: none; }
+  .sw-k { font-size: 12.5px; color: var(--gray-text); font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .sw-v { font-size: 12.5px; font-weight: 700; color: var(--black); }
+  .sw-badge-green { background: var(--green-light); color: #2a5e00; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; }
+
+  .profile-card {
+    background: var(--white);
+    border: 1.5px solid var(--gray-border);
+    border-radius: 14px; padding: 22px;
+    text-align: center;
+  }
+  .profile-avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--black); color: var(--green);
+    font-size: 18px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+  }
+  .profile-name { font-size: 15px; font-weight: 800; color: var(--black); margin-bottom: 4px; }
+  .profile-sub { font-size: 12px; color: var(--gray-text); margin-bottom: 14px; line-height: 1.5; }
+  .profile-upwork-btn {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    background: #6fda44; color: var(--white);
+    border: none; border-radius: 8px;
+    padding: 11px 16px; font-size: 13px; font-weight: 700;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    text-decoration: none; width: 100%;
+    transition: background 0.15s;
+  }
+  .profile-upwork-btn:hover { background: #5bc736; }
+  .profile-stars { color: #f5a623; font-size: 14px; margin-bottom: 4px; }
+  .profile-rating { font-size: 12px; color: var(--gray-text); margin-bottom: 14px; }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--black);
+    margin: 20px 20px 0;
+    border-radius: 16px;
+    padding: 52px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(150,191,72,0.15) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+  .cta-section > * { position: relative; z-index: 1; }
+  .cta-h { font-size: 28px; font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: -0.5px; }
+  .cta-sub { font-size: 15px; color: #9ca3af; margin-bottom: 28px; line-height: 1.7; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--green); color: var(--white);
+    border: none; border-radius: 9px;
+    padding: 15px 34px; font-size: 15px; font-weight: 800;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    text-decoration: none; transition: background 0.15s, transform 0.1s;
+    margin-bottom: 16px;
+  }
+  .cta-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+  .cta-note { font-size: 12px; color: #555; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--white);
+    border-top: 2px solid var(--gray-border);
+    padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 20px;
+  }
+  .footer-left { display: flex; align-items: center; gap: 14px; }
+  .footer-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--black); color: var(--green);
+    font-size: 14px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer-name { font-size: 14px; font-weight: 700; color: var(--black); }
+  .footer-sub { font-size: 12px; color: #9ca3af; margin-top: 2px; }
+  .footer-badge {
+    display: flex; align-items: center; gap: 7px;
+    background: var(--green-light); border: 1.5px solid var(--green-border);
+    color: #2a5e00; font-size: 12px; font-weight: 700;
+    padding: 8px 16px; border-radius: 20px; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .footer-badge:hover { background: #d8f0aa; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--gray-border); margin: 0; }
 </style>
+</head>
+<body>
 
-<div class="sp sp-bg">
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="pulse"></span>
+  Free Shopify speed audit included — <strong>no cost, no obligation</strong>
+  <span class="pulse"></span>
+</div>
 
-  <div class="sp-topbar">
-    <span class="sp-topbar-dot"></span>
-    Free Shopify speed audit included —
-    <span>no cost, no obligation</span>
-    <span class="sp-topbar-dot"></span>
+<!-- NAV -->
+<nav>
+  <a href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C9.5 2 7.5 4 7.5 6.5V7H6C5.4 7 5 7.4 5 8v12c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V8c0-.6-.4-1-1-1h-1.5v-.5C16.5 4 14.5 2 12 2zm0 2c1.4 0 2.5 1.1 2.5 2.5V7h-5v-.5C9.5 5.1 10.6 4 12 4zm0 8c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" fill="#96bf48"/>
+      </svg>
+    </div>
+    Waheed Studio
+  </a>
+  <div class="nav-links">
+    <a href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">Portfolio</a>
+    <a href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">Services</a>
+    <a href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">Results</a>
+    <a href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank" class="nav-cta">
+      <i class="ti ti-circle-check" style="font-size:13px"></i>
+      Available now
+    </a>
   </div>
+</nav>
 
-  <div class="sp-nav">
-    <div class="sp-logo">
-      <div class="sp-logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C9.5 2 7.5 4 7.5 6.5V7H6C5.4 7 5 7.4 5 8v12c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V8c0-.6-.4-1-1-1h-1.5v-.5C16.5 4 14.5 2 12 2zm0 2c1.4 0 2.5 1.1 2.5 2.5V7h-5v-.5C9.5 5.1 10.6 4 12 4zm0 8c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" fill="#96bf48"/>
-        </svg>
-      </div>
-      Waheed Studio
-    </div>
-    <div class="sp-nav-right">
-      <a class="sp-nav-link" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">Portfolio</a>
-      <a class="sp-nav-link" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">Services</a>
-      <a class="sp-nav-link" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">Results</a>
-      <div class="sp-live-badge">
-        <span class="sp-live-dot"></span>
-        Available now
-      </div>
-    </div>
-  </div>
+<div class="page-wrap">
 
-  <div class="sp-hero-wrap">
-    <div class="sp-hero-pattern"></div>
-    <div class="sp-hero-right-block">
-      <div class="sp-hero-right-inner">
-        <div class="sp-mini-card">
-          <div class="sp-mini-label">Experience</div>
-          <div class="sp-mini-val">15 yrs</div>
-          <div class="sp-mini-sub">Shopify Expert</div>
-        </div>
-        <div class="sp-mini-card">
-          <div class="sp-mini-label">Projects delivered</div>
-          <div class="sp-mini-val">190+</div>
-          <div class="sp-mini-sub">On time, every time</div>
-        </div>
-        <div class="sp-mini-card">
-          <div class="sp-mini-label">Delivery</div>
-          <div class="sp-mini-val">4 days</div>
-          <div class="sp-mini-sub">All 5 pages</div>
-        </div>
-        <div class="sp-mini-card">
-          <div class="sp-mini-label">On-time rate</div>
-          <div class="sp-mini-val">100%</div>
-          <div class="sp-mini-sub">Daily updates</div>
-        </div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-dot-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <i class="ti ti-file-text" style="font-size:12px"></i>
+        Proposal · Shopify Ad Pages
       </div>
-    </div>
-
-    <div class="sp-hero-content">
-      <div class="sp-hero-tag">
-        <i class="ti ti-file-text" style="font-size:12px" aria-hidden="true"></i>
-        Proposal · Shopify Landing Pages
-      </div>
-      <div class="sp-to-label">For Usman</div>
-      <h1 class="sp-h1">5 Landing Pages Built to<br><span class="g">Convert Google Ads Traffic</span></h1>
-      <p class="sp-hero-sub">Fast, mobile-first Shopify pages matched to your reference design — delivered in 4 days, with SEO structure and ad tracking built in from day one.</p>
-      <div class="sp-btns">
-        <a class="sp-btn-g" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
-          <i class="ti ti-bolt" style="font-size:14px" aria-hidden="true"></i>
+      <div class="hero-for">For Usman</div>
+      <h1 class="hero-h1">5 Shopify Pages Built<br>to <span class="accent">Convert Ads & Rank</span></h1>
+      <p class="hero-sub">Fast, mobile-first landing pages matched to your reference design — delivered in 4 days, with SEO structure and Google Ads conversion tracking built in from day one.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
+          <i class="ti ti-bolt" style="font-size:15px"></i>
           View my Upwork profile
         </a>
-        <a class="sp-btn-o" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
-          <i class="ti ti-external-link" style="font-size:13px" aria-hidden="true"></i>
+        <a class="btn-secondary" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
+          <i class="ti ti-external-link" style="font-size:14px"></i>
           See portfolio
         </a>
       </div>
-      <div class="sp-stats-row">
-        <div class="sp-stat"><div class="sp-stat-n">$30</div><div class="sp-stat-l">Per hour</div></div>
-        <div class="sp-stat"><div class="sp-stat-n">5 pages</div><div class="sp-stat-l">Scope</div></div>
-        <div class="sp-stat"><div class="sp-stat-n">GemPages</div><div class="sp-stat-l">Builder</div></div>
-        <div class="sp-stat"><div class="sp-stat-n">SEO+Ads</div><div class="sp-stat-l">Optimised</div></div>
+      <div class="hero-meta">
+        <div class="meta-item"><div class="meta-num">$30/hr</div><div class="meta-label">Rate</div></div>
+        <div class="meta-item"><div class="meta-num">5 pages</div><div class="meta-label">Scope</div></div>
+        <div class="meta-item"><div class="meta-num">GemPages</div><div class="meta-label">Builder</div></div>
+        <div class="meta-item"><div class="meta-num">SEO+Ads</div><div class="meta-label">Optimised</div></div>
+      </div>
+    </div>
+    <div class="hero-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Experience</div>
+        <div class="sidebar-val">15 yrs</div>
+        <div class="sidebar-sub">Certified Shopify Expert</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-label">Projects delivered</div>
+        <div class="sidebar-val">190+</div>
+        <div class="sidebar-sub">On time, every time</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-label">Delivery timeline</div>
+        <div class="sidebar-val">4 days</div>
+        <div class="sidebar-sub">All 5 pages complete</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-label">Client satisfaction</div>
+        <div class="sidebar-val">100%</div>
+        <div class="sidebar-sub">Daily progress updates</div>
       </div>
     </div>
   </div>
 
-  <div class="sp-gift-bar">
-    <div class="sp-gift-icon-wrap">
-      <i class="ti ti-gift" style="font-size:20px;color:#fff" aria-hidden="true"></i>
-    </div>
+  <!-- FREE BAR -->
+  <div class="free-bar">
+    <div class="free-icon"><i class="ti ti-gift"></i></div>
     <div>
-      <div class="sp-gift-title">Free — No obligation</div>
-      <div class="sp-gift-txt">I will audit your Shopify store's speed and structure before writing a single line of code — completely free, no strings attached.</div>
+      <div class="free-label">Free — No obligation</div>
+      <div class="free-txt">I will audit your Shopify store's speed and structure before writing a single line of code — completely free, no strings attached.</div>
     </div>
   </div>
 
-  <div class="sp-gap"></div>
+  <!-- MAIN GRID -->
+  <div class="main-grid">
 
-  <div class="sp-card">
-    <div class="sp-section-pill"><i class="ti ti-file-description" style="font-size:11px" aria-hidden="true"></i> The brief</div>
-    <div class="sp-section-h">What I am building for you</div>
-    <div class="sp-body-txt">
-      Usman, your 5 landing pages need to load fast, match your reference design, and convert Google Ads traffic. That is exactly what I built for <a href="https://fieracosmetics.com/" target="_blank">fieracosmetics.com</a> and <a href="https://naadam.co/" target="_blank">naadam.co</a> — using GemPages and custom Liquid, delivering faster load times and stronger ad conversion rates. I will bring that exact approach to your store.
-    </div>
-  </div>
+    <!-- LEFT COLUMN -->
+    <div class="main-left">
 
-  <div class="sp-gap"></div>
-
-  <div class="sp-card">
-    <div class="sp-section-pill"><i class="ti ti-calendar" style="font-size:11px" aria-hidden="true"></i> Delivery plan</div>
-    <div class="sp-section-h">4-day roadmap</div>
-    <div class="sp-tl">
-      <div class="sp-tl-row">
-        <div class="sp-tl-left"><div class="sp-tl-num">1</div><div class="sp-tl-line"></div></div>
-        <div class="sp-tl-body">
-          <div class="sp-tl-day">Day 1</div>
-          <div class="sp-tl-title">Free audit + design alignment</div>
-          <div class="sp-tl-desc">Audit your store speed and structure. Review your reference design. Agree on layout, branding, and SEO framework before any code is written.</div>
+      <!-- BRIEF -->
+      <div class="s-card">
+        <div class="s-pill"><i class="ti ti-file-description" style="font-size:11px"></i> The brief</div>
+        <div class="s-title">What I am building for you</div>
+        <div class="s-body">
+          Usman, your 5 landing pages need to load fast, match your reference design, and convert Google Ads traffic. That is exactly what I built for <a href="https://fieracosmetics.com/" target="_blank">fieracosmetics.com</a> and <a href="https://naadam.co/" target="_blank">naadam.co</a> — using GemPages and custom Liquid, delivering faster load times and stronger ad conversion rates. I will bring that same approach to your store, tailored to your brand and your campaign goals.
         </div>
       </div>
-      <div class="sp-tl-row">
-        <div class="sp-tl-left"><div class="sp-tl-num">2–3</div><div class="sp-tl-line"></div></div>
-        <div class="sp-tl-body">
-          <div class="sp-tl-day">Days 2–3</div>
-          <div class="sp-tl-title">Build all 5 pages, fully responsive</div>
-          <div class="sp-tl-desc">Build using GemPages or custom Liquid. Desktop, tablet, and mobile-optimised. Daily progress update sent every evening.</div>
+
+      <!-- TIMELINE -->
+      <div class="s-card">
+        <div class="s-pill"><i class="ti ti-calendar" style="font-size:11px"></i> Delivery plan</div>
+        <div class="s-title">4-day roadmap</div>
+        <div class="tl">
+          <div class="tl-row">
+            <div class="tl-left"><div class="tl-num">1</div><div class="tl-line"></div></div>
+            <div class="tl-body">
+              <div class="tl-day">Day 1</div>
+              <div class="tl-t">Free audit + design alignment</div>
+              <div class="tl-d">Audit your store speed and structure. Review your reference design. Agree on layout, branding, and SEO framework before any code is written.</div>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-left"><div class="tl-num">2–3</div><div class="tl-line"></div></div>
+            <div class="tl-body">
+              <div class="tl-day">Days 2–3</div>
+              <div class="tl-t">Build all 5 pages, fully responsive</div>
+              <div class="tl-d">Build using GemPages or custom Liquid. Desktop, tablet, and mobile-optimised. Daily progress update sent every evening so you always know where we stand.</div>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-left"><div class="tl-num">4</div></div>
+            <div class="tl-body">
+              <div class="tl-day">Day 4</div>
+              <div class="tl-t">SEO checks, revisions, publish-ready</div>
+              <div class="tl-d">Final SEO audit, conversion tracking verified, all revisions applied — all 5 pages ready to publish and run Google Ads immediately.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="sp-tl-row">
-        <div class="sp-tl-left"><div class="sp-tl-num">4</div></div>
-        <div class="sp-tl-body">
-          <div class="sp-tl-day">Day 4</div>
-          <div class="sp-tl-title">SEO checks, revisions, publish-ready</div>
-          <div class="sp-tl-desc">Final SEO audit, conversion tracking verified, revisions applied — all 5 pages ready to publish and run ads immediately.</div>
+
+      <!-- PROOF -->
+      <div class="s-card">
+        <div class="s-pill"><i class="ti ti-award" style="font-size:11px"></i> Proof of work</div>
+        <div class="s-title">Clients I have delivered for</div>
+        <div class="proof-grid">
+          <div class="proof-card">
+            <div class="proof-ico"><i class="ti ti-sparkles"></i></div>
+            <div><div class="proof-name">Fiera Cosmetics</div><div class="proof-res">GemPages build · faster load times · higher Google Ads CVR</div></div>
+          </div>
+          <div class="proof-card">
+            <div class="proof-ico"><i class="ti ti-shirt"></i></div>
+            <div><div class="proof-name">Naadam</div><div class="proof-res">Custom Liquid · mobile-first · SEO-structured pages</div></div>
+          </div>
+          <div class="proof-card">
+            <div class="proof-ico"><i class="ti ti-map-pin"></i></div>
+            <div><div class="proof-name">Discover Atlanta</div><div class="proof-res">Landing pages · conversion rate optimisation</div></div>
+          </div>
+          <div class="proof-card">
+            <div class="proof-ico"><i class="ti ti-leaf"></i></div>
+            <div><div class="proof-name">Jungmaven</div><div class="proof-res">Shopify Plus · speed optimisation · CRO work</div></div>
+          </div>
         </div>
       </div>
+
+      <!-- SKILLS -->
+      <div class="s-card">
+        <div class="s-pill"><i class="ti ti-tool" style="font-size:11px"></i> Skills</div>
+        <div class="s-title">What I bring to this project</div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="ti ti-layout skill-ico"></i>
+            <div class="skill-name">GemPages / PageFly</div>
+            <div class="skill-sub">Expert level</div>
+          </div>
+          <div class="skill-card">
+            <i class="ti ti-code skill-ico"></i>
+            <div class="skill-name">Shopify Liquid</div>
+            <div class="skill-sub">Custom theme dev</div>
+          </div>
+          <div class="skill-card">
+            <i class="ti ti-search skill-ico"></i>
+            <div class="skill-name">On-page SEO</div>
+            <div class="skill-sub">Structure and speed</div>
+          </div>
+          <div class="skill-card">
+            <i class="ti ti-chart-bar skill-ico"></i>
+            <div class="skill-name">Google Ads CRO</div>
+            <div class="skill-sub">Conversion tracking</div>
+          </div>
+          <div class="skill-card">
+            <i class="ti ti-device-mobile skill-ico"></i>
+            <div class="skill-name">Responsive design</div>
+            <div class="skill-sub">All screen sizes</div>
+          </div>
+          <div class="skill-card">
+            <i class="ti ti-rocket skill-ico"></i>
+            <div class="skill-name">Speed optimisation</div>
+            <div class="skill-sub">Core Web Vitals</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUESTION -->
+      <div class="s-card">
+        <div class="q-box">
+          <div class="q-label"><i class="ti ti-question-mark" style="font-size:13px"></i> Quick question for you, Usman</div>
+          <div class="q-txt">Are these 5 pages targeting different audiences, or variations of the same offer? That affects how I structure the SEO metadata and set up conversion tracking across each individual page — and I want to get it exactly right from day one.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="main-right">
+
+      <!-- PROFILE CARD -->
+      <div class="profile-card">
+        <div class="profile-avatar">MW</div>
+        <div class="profile-name">Muhammad Waheed</div>
+        <div class="profile-stars">★★★★★</div>
+        <div class="profile-rating">Top-rated · 190+ projects</div>
+        <div class="profile-sub">Certified Shopify Expert with 15 years of experience building high-converting stores.</div>
+        <a class="profile-upwork-btn" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
+          <i class="ti ti-external-link" style="font-size:15px"></i>
+          View Upwork profile
+        </a>
+      </div>
+
+      <!-- PROJECT DETAILS -->
+      <div class="sw-card">
+        <div class="sw-title">Project details</div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-clock" style="font-size:14px"></i> Timeline</span>
+          <span class="sw-v">4 days</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-currency-dollar" style="font-size:14px"></i> Rate</span>
+          <span class="sw-v">$30 / hr</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-files" style="font-size:14px"></i> Pages</span>
+          <span class="sw-v">5 landing pages</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-device-desktop" style="font-size:14px"></i> Devices</span>
+          <span class="sw-v">All 3 sizes</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-circle-check" style="font-size:14px"></i> Status</span>
+          <span class="sw-badge-green">Ready to start</span>
+        </div>
+      </div>
+
+      <!-- WHAT'S INCLUDED -->
+      <div class="sw-card">
+        <div class="sw-title">What's included</div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-check" style="font-size:14px; color:#96bf48"></i> Free audit</span>
+          <span class="sw-badge-green">Free</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-check" style="font-size:14px; color:#96bf48"></i> SEO structure</span>
+          <span class="sw-v">✓</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-check" style="font-size:14px; color:#96bf48"></i> Ads tracking</span>
+          <span class="sw-v">✓</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-check" style="font-size:14px; color:#96bf48"></i> Daily updates</span>
+          <span class="sw-v">✓</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-k"><i class="ti ti-check" style="font-size:14px; color:#96bf48"></i> Revisions</span>
+          <span class="sw-v">Included</span>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <a class="btn-primary" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank" style="width:100%; justify-content:center; border-radius:10px; padding:14px;">
+        <i class="ti ti-send" style="font-size:15px"></i>
+        Hire Waheed on Upwork
+      </a>
+
     </div>
   </div>
 
-  <div class="sp-gap"></div>
-
-  <div class="sp-card">
-    <div class="sp-section-pill"><i class="ti ti-award" style="font-size:11px" aria-hidden="true"></i> Proof of work</div>
-    <div class="sp-section-h">Clients I have delivered for</div>
-    <div class="sp-proof-grid">
-      <div class="sp-proof">
-        <div class="sp-proof-ico"><i class="ti ti-sparkles" style="font-size:16px;color:#639922" aria-hidden="true"></i></div>
-        <div><div class="sp-proof-name">Fiera Cosmetics</div><div class="sp-proof-res">GemPages · faster load times · higher ad CVR</div></div>
-      </div>
-      <div class="sp-proof">
-        <div class="sp-proof-ico"><i class="ti ti-shirt" style="font-size:16px;color:#639922" aria-hidden="true"></i></div>
-        <div><div class="sp-proof-name">Naadam</div><div class="sp-proof-res">Custom Liquid · mobile-first · SEO structured</div></div>
-      </div>
-      <div class="sp-proof">
-        <div class="sp-proof-ico"><i class="ti ti-map-pin" style="font-size:16px;color:#639922" aria-hidden="true"></i></div>
-        <div><div class="sp-proof-name">Discover Atlanta</div><div class="sp-proof-res">Landing pages · conversion optimisation</div></div>
-      </div>
-      <div class="sp-proof">
-        <div class="sp-proof-ico"><i class="ti ti-leaf" style="font-size:16px;color:#639922" aria-hidden="true"></i></div>
-        <div><div class="sp-proof-name">Jungmaven</div><div class="sp-proof-res">Shopify Plus · speed optimisation · CRO</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sp-gap"></div>
-
-  <div class="sp-card">
-    <div class="sp-section-pill"><i class="ti ti-tool" style="font-size:11px" aria-hidden="true"></i> Skills</div>
-    <div class="sp-section-h">What I bring to this project</div>
-    <div class="sp-skills-grid">
-      <div class="sp-skill"><i class="ti ti-layout" style="font-size:22px;color:#96bf48;margin-bottom:6px;display:block" aria-hidden="true"></i><div class="sp-skill-name">GemPages / PageFly</div><div class="sp-skill-sub">Expert level</div></div>
-      <div class="sp-skill"><i class="ti ti-code" style="font-size:22px;color:#96bf48;margin-bottom:6px;display:block" aria-hidden="true"></i><div class="sp-skill-name">Shopify Liquid</div><div class="sp-skill-sub">Custom theme dev</div></div>
-      <div class="sp-skill"><i class="ti ti-search" style="font-size:22px;color:#96bf48;margin-bottom:6px;display:block" aria-hidden="true"></i><div class="sp-skill-name">On-page SEO</div><div class="sp-skill-sub">Structure and speed</div></div>
-      <div class="sp-skill"><i class="ti ti-chart-bar" style="font-size:22px;color:#96bf48;margin-bottom:6px;display:block" aria-hidden="true"></i><div class="sp-skill-name">Google Ads CRO</div><div class="sp-skill-sub">Conversion tracking</div></div>
-      <div class="sp-skill"><i class="ti ti-device-mobile" style="font-size:22px;color:#96bf48;margin-bottom:6px;display:block" aria-hidden="true"></i><div class="sp-skill-name">Responsive design</div><div class="sp-skill-sub">All screen sizes</div></div>
-      <div class="sp-skill"><i class="ti ti-rocket" style="font-size:22px;color:#96bf48;margin-bottom:6px;display:block" aria-hidden="true"></i><div class="sp-skill-name">Speed optimisation</div><div class="sp-skill-sub">Core Web Vitals</div></div>
-    </div>
-  </div>
-
-  <div class="sp-gap"></div>
-
-  <div class="sp-card">
-    <div class="sp-q-box">
-      <div class="sp-q-label">
-        <i class="ti ti-question-mark" style="font-size:13px" aria-hidden="true"></i>
-        Quick question for you, Usman
-      </div>
-      <div class="sp-q-txt">Are these 5 pages targeting different audiences, or variations of the same offer? That affects how I structure the SEO metadata and set up conversion tracking across each individual page — and I want to get it right from day one.</div>
-    </div>
-  </div>
-
-  <div class="sp-gap"></div>
-
-  <div class="sp-cta-block">
-    <div class="sp-cta-h">Looking for a long-term partner, not a one-off</div>
-    <div class="sp-cta-sub">You will get daily progress updates, fast revisions, and someone who treats your store like their own. If these pages perform, I am here for everything that comes next.</div>
-    <a class="sp-cta-btn" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
-      <i class="ti ti-external-link" style="font-size:15px" aria-hidden="true"></i>
-      View my Upwork profile
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-bg-dots"></div>
+    <div class="cta-h">Looking for a long-term partner, not a one-off</div>
+    <p class="cta-sub">You will get daily progress updates, fast revisions, and someone who treats your store like their own. If these pages perform, I am here for everything that comes next.</p>
+    <a class="cta-btn" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
+      <i class="ti ti-bolt" style="font-size:16px"></i>
+      Reply today — audit starts within the hour
     </a>
-    <div class="sp-cta-note">Cheers, Waheed · Certified Shopify Expert · 15 Years · 190+ Projects</div>
+    <div class="cta-note">Cheers, Waheed · Certified Shopify Expert · 15 Years · 190+ Projects Delivered</div>
   </div>
 
-  <div class="sp-footer">
-    <div class="sp-footer-left">
-      <div class="sp-avatar">MW</div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <div class="footer-avatar">MW</div>
       <div>
-        <div class="sp-fname">Muhammad Waheed</div>
-        <div class="sp-fsub">Certified Shopify Expert · 15 yrs · 190+ projects delivered</div>
+        <div class="footer-name">Muhammad Waheed</div>
+        <div class="footer-sub">Certified Shopify Expert · 15 years · 190+ projects delivered</div>
       </div>
     </div>
-    <a class="sp-fbadge" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank" style="text-decoration:none;">
-      <i class="ti ti-shield-check" style="font-size:12px" aria-hidden="true"></i>
+    <a class="footer-badge" href="https://www.upwork.com/freelancers/~01f4f8dbc83190fa13" target="_blank">
+      <i class="ti ti-shield-check" style="font-size:13px"></i>
       View on Upwork
     </a>
-  </div>
+  </footer>
 
 </div>
+</body>
+</html>
